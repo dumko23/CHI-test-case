@@ -1,0 +1,155 @@
+@mixin flex($dir) {
+  display: flex;
+  flex-direction: $dir;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+}
+
+html {
+  box-sizing: border-box;
+  margin: 0;
+  background-color: azure;
+  font-family: 'Roboto Mono', monospace;
+}
+
+li {
+  list-style-type: none;
+  border: 1px solid grey;
+  background-color: white;
+  margin: 0.5rem;
+}
+
+ul {
+  margin-left: 0;
+  padding-left: 0;
+  overflow: auto;
+  height: 25rem;
+}
+
+.heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-left: 0.5rem;
+}
+
+.invest-inner-div {
+  @include flex(row);
+}
+
+.invest-div {
+  @include flex(column);
+}
+
+.invested{
+  font-size: 0.75rem;
+  color: green;
+  display: none;
+  margin-left: 0.5rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  font-weight: bold;
+}
+
+.details {
+  margin-left: 0.5rem;
+}
+
+.invest-button {
+  margin: 0 0.5rem 0.5rem 0;
+}
+
+.div-modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+  padding: 30px 0;
+  visibility: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.invest-form-modal {
+  @include flex(column);
+  background: white;
+  margin: 0 auto;
+  width: fit-content;
+  padding: 1rem;
+  opacity: 1;
+}
+
+.container-modal {
+  @include flex(row-reverse)
+}
+
+.inputs-modal {
+  @include flex(row);
+}
+
+.invest-header-modal {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.info-div-modal {
+  @include flex(column);
+}
+
+.input-button {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border: none;
+  background-color: orange;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+.icon:hover {
+  zoom: 1.25;
+}
+
+input {
+  padding: 0.5rem;
+  text-align: right;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#cash {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+#warning-1{
+  font-size: 0.75rem;
+  color: red;
+  display: none;
+}
+
+#warning-2{
+  font-size: 0.75rem;
+  color: red;
+  display: none;
+}

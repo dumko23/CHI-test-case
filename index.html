@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loan page</title>
+    <script src="index.js" defer></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<div style="margin: 2rem 0">
+    <span class="heading">Current Loans</span>
+</div>
+
+<div>
+    <ul id="loan-list">
+    </ul>
+</div>
+
+<div class="div-modal" id="modal-id" aria-hidden="true">
+    <form class="invest-form-modal" id="form-id">
+        <div class="container-modal">
+            <span class="icon"><i class="fas fa-times-circle" onclick="closeModal()"></i></span>
+            <div class="info-div-modal">
+                <span class="invest-header-modal" style="margin-bottom: 0.5rem">
+                    Invest in loan
+                </span>
+                <span id="current-loan-title" style="margin-bottom: 1rem">
+                </span>
+                <span class="investment-modal">
+                    Amount available: $<span id="current-loan-available"></span>
+                </span>
+                <span class="investment-modal" style="margin-bottom: 1rem">
+                    Loan ends in: <span id="current-loan-expire"></span> days
+                </span>
+                <span class="investment-modal">
+                    Investment amount($)
+                </span>
+            </div>
+        </div>
+        <div class="inputs-modal">
+            <label>
+                <input type="number" id="invest-input-modal" required>
+            </label>
+            <input type="button"
+                   value="INVEST"
+                   class="input-button"
+                   onclick="onInvest(parseInt(document.getElementById('invest-input-modal').value))">
+        </div>
+        <span id="warning-1">Investment value exceeds available amount</span>
+        <span id="warning-2">Provide the investment value</span>
+    </form>
+</div>
+
+<span id="cash">
+    Total amount available for investment: $<span id="total-amount"></span>
+</span>
+</body>
+</html>
