@@ -6,6 +6,9 @@
   width: 100%;
 }
 
+
+$font-size: 1rem;
+
 html {
   box-sizing: border-box;
   margin: 0;
@@ -13,11 +16,10 @@ html {
   font-family: 'Roboto Mono', monospace;
 }
 
-li {
-  list-style-type: none;
-  border: 1px solid grey;
-  background-color: white;
-  margin: 0.5rem;
+.heading {
+  font-size: $font-size * 2.5;
+  font-weight: bold;
+  margin-left: 0.5rem;
 }
 
 ul {
@@ -25,41 +27,44 @@ ul {
   padding-left: 0;
   overflow: auto;
   height: 25rem;
-}
 
-.heading {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-left: 0.5rem;
-}
+  li {
+    list-style-type: none;
+    border: 1px solid grey;
+    background-color: white;
+    margin: 0.5rem;
 
-.invest-inner-div {
-  @include flex(row);
-}
+    .invest-div {
+      @include flex(column);
 
-.invest-div {
-  @include flex(column);
-}
+      .title {
+        font-size: $font-size * 1.5;
+        padding: 0.5rem;
+        font-weight: bold;
 
-.invested{
-  font-size: 0.75rem;
-  color: green;
-  display: none;
-  margin-left: 0.5rem;
-}
+        .invested {
+          font-size: $font-size * 0.75;
+          color: green;
+          display: none;
+          margin-left: 0.5rem;
+        }
+      }
 
-.title {
-  font-size: 1.5rem;
-  padding: 0.5rem;
-  font-weight: bold;
-}
+      .invest-inner-div {
+        @include flex(row);
 
-.details {
-  margin-left: 0.5rem;
-}
+        .details {
+          margin-left: 0.5rem;
+        }
 
-.invest-button {
-  margin: 0 0.5rem 0.5rem 0;
+        .invest-button {
+          margin: 0 0.5rem 0.5rem 0;
+          padding: 0.5rem 1rem;
+          cursor: pointer;
+        }
+      }
+    }
+  }
 }
 
 .div-modal {
@@ -76,63 +81,71 @@ ul {
   padding: 30px 0;
   visibility: hidden;
   background-color: rgba(0, 0, 0, 0.5);
-}
 
-.invest-form-modal {
-  @include flex(column);
-  background: white;
-  margin: 0 auto;
-  width: fit-content;
-  padding: 1rem;
-  opacity: 1;
-}
+  .invest-form-modal {
+    @include flex(column);
+    background: white;
+    margin: 0 auto;
+    width: fit-content;
+    padding: 1rem;
+    opacity: 1;
 
-.container-modal {
-  @include flex(row-reverse)
-}
+    .container-modal {
+      @include flex(row-reverse);
 
-.inputs-modal {
-  @include flex(row);
-}
+      .icon {
+        cursor: pointer;
+      }
 
-.invest-header-modal {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
+      .icon:hover {
+        zoom: 1.25;
+      }
 
-.info-div-modal {
-  @include flex(column);
-}
+      .info-div-modal {
+        @include flex(column);
 
-.input-button {
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  border: none;
-  background-color: orange;
-}
+        .invest-header-modal {
+          font-size: $font-size * 1.5;
+          font-weight: bold;
+          margin-bottom: 0.5rem
+        }
+      }
+    }
 
-button {
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-}
+    .inputs-modal {
+      @include flex(row);
 
-.icon {
-  cursor: pointer;
-}
+      input {
+        padding: 0.5rem;
+        text-align: right;
+      }
 
-.icon:hover {
-  zoom: 1.25;
-}
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
 
-input {
-  padding: 0.5rem;
-  text-align: right;
-}
+      .input-button {
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        border: none;
+        background-color: orange;
+      }
+    }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    #warning-1 {
+      font-size: $font-size * 0.75;
+      color: red;
+      display: none;
+    }
+
+    #warning-2 {
+      font-size: $font-size * 0.75;
+      color: red;
+      display: none;
+    }
+  }
 }
 
 #cash {
@@ -140,16 +153,4 @@ input::-webkit-inner-spin-button {
   justify-content: center;
   text-align: center;
   margin-top: 3rem;
-}
-
-#warning-1{
-  font-size: 0.75rem;
-  color: red;
-  display: none;
-}
-
-#warning-2{
-  font-size: 0.75rem;
-  color: red;
-  display: none;
 }
